@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Make sure we're using the right display
+export DISPLAY=:0
+
+# If needed, set any other environment variables raylib might need
+# export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
+# Launch the application and detach it from the terminal
+~/.config/eww/scripts/tunegui &
+
+# Exit the script while leaving the application running
+disown
+exit 0

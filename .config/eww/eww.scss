@@ -1,0 +1,189 @@
+// Color variables
+$foreground: #FaFaFa;
+$background: #1E1E1E;
+
+// Regular colors
+$regular0: #8A8A8A;
+$regular1: #C4B0B0; // barely reddish
+$regular2: #B0C4B0; // barely greenish
+$regular3: #C4C4B0; // barely yellowish
+$regular4: #B0B0C4; // barely bluish
+$regular5: #C4B0C4; // barely purplish
+$regular6: #B0C4C4; // barely cyan
+$regular7: #D1D1D1;
+
+// Bright colors
+$bright0: #A0A0A0;
+$bright1: #D0B8B8;
+$bright2: #B8D0B8;
+$bright3: #D0D0B8;
+$bright4: #B8B8D0;
+$bright5: #D0B8D0;
+$bright6: #B8D0D0;
+$bright7: #E0E0E0;
+
+// Dim colors
+$dim0: #6E6E6E;
+$dim1: #3A2E2E;
+$dim2: #2E3A2E;
+$dim3: #3A3A2E;
+$dim4: #2E2E3A;
+$dim5: #3A2E3A;
+$dim6: #2E3A3A;
+$dim7: #2E2E2E;
+
+$accent: $regular5;
+
+// Secondary colors
+$bar-bg: $background;
+$text-color: $regular7;
+$hover-color: $bright5;
+
+* {
+  all: unset;
+}
+
+.bar {
+  font-family: "Iosevka Nerd Font, Noto Sans CJK HK";
+  font-size: 15px;
+  background-color: $bar-bg;
+  color: $text-color;
+  color: $accent;
+  // border: 2px solid $accent;
+}
+
+.sidestuff {
+  slider {
+    color: $accent;
+  }
+}
+
+.workspace-button {
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.workspace-button.active {
+  color: $foreground;
+  font-weight: bold;
+}
+
+.separator {
+  color: $dim0
+}
+
+.battery_inner  {
+  font-weight: bold;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.battery:hover {
+  color: $foreground;
+}
+
+.time_inner {
+  font-weight: bold;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.time:hover {
+  color: $foreground;
+}
+
+.music_inner {
+  font-weight: bold;
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.music:hover {
+  color: $foreground;
+}
+
+menu {
+  all: unset;
+  padding: 5px;
+  background-color: $background;
+  color: $foreground;
+  border: 1px solid $accent;
+
+  menuitem {
+    border-radius: 5px;
+    padding: 8px 12px;
+    background-color: transparent;
+    transition: all .2s ease;
+
+    &:backdrop {
+      background-color: $background;
+    }
+  }
+
+  menuitem arrow {
+    min-width: 16px;
+    min-height: 16px;
+
+    &:dir(ltr) {
+      -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
+
+  menuitem:hover {
+    background-color: $accent;
+    color: $background;
+    border-radius: 0;
+  }
+}
+
+tooltip {
+  background-color: $background;
+  border: 1px solid $accent;
+  color: $foreground;
+  min-width: 16px;
+  min-height: 16px;
+  padding: 8px;
+  font-weight: normal;
+}
+
+.cal-box {
+  all: unset;
+  background-color: $background;
+  border: 1px solid $accent;
+  font-weight: bold;
+  .cal-inner-box {
+    padding: 1rem 1rem .2rem;
+
+    .cal {
+      &.highlight {
+        padding: 10rem;
+      }
+
+      padding: .8rem .25rem 0rem;
+      margin-left: 10px;
+    }
+  }
+}
+
+calendar:selected {
+  color: $accent;
+}
+
+calendar.header {
+  color: $accent;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $regular4;
+}
+calendar.highlight {
+  color: $regular4;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: $background;
+}

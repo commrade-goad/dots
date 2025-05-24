@@ -1,0 +1,29 @@
+prompt_name = "  Master "
+pretty_name = [
+    "⏻ Shutdown",
+    " Reboot",
+    "Z Suspend",
+    " Logout",
+    " Lock",
+    " App",
+    "󰂚 Notifications",
+    " Emoji",
+    "󰎈 Media",
+    "󰊖 Toggle Gamemode",
+    # "󰸉 Toggle Live Wallpaper",
+    # "󰐎 Play-Pause Live Wallpaper",
+]
+command = [
+    "systemctl poweroff",
+    "systemctl reboot",
+    "loginctl lock-session && systemctl suspend",
+    "hyprctl dispatch exit",
+    "loginctl lock-session",
+    "rofi -show drun",
+    "~/.config/sway/script/notif-history",
+    "~/.config/sway/script/emoji.sh",
+    "playerctl play-pause",
+    "~/.config/hypr/scripts/gamemode.sh",
+    # "~/.config/hypr/scripts/livewp.sh",
+    # "~/.config/hypr/scripts/livewp.sh toggle",
+]

@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=imgview - Image Opener
+Exec=imgview %f

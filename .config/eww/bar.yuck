@@ -1,0 +1,131 @@
+(defwidget bar []
+    (box :orientation "v"
+        (workspace-panel)
+        (sidestuff))
+)
+
+; todo make battery dynamic
+
+(defwidget sidestuff []
+    (box :class "sidestuff" :orientation "v" :space-evenly false :halign "center" :valign "end"
+        (systray
+            :class "systray"
+            :spacing 10
+            :orientation "v"
+            :space-evenly true
+            :icon-size 16
+            :prepend-new true
+        )
+        (music)
+        (separator)
+        (battery)
+        (separator)
+        (time)
+    )
+)
+
+(defwidget music []
+    (eventbox :class "music"
+        (box :class "music_inner"
+            :orientation "v"
+            :space-evenly false
+            :halign "center"
+            :width 38
+            :tooltip "${music_info}"
+            (button :onclick "playerctl play-pause" {music != "Playing" ? "󰏤" : "󰐊" })
+        )
+    )
+)
+
+(defwidget battery []
+    (eventbox :class "battery"
+        (box :class "battery_inner"
+            :orientation "v"
+            :space-evenly false
+            :halign "center"
+            :width 38
+            (button :onclick "scripts/tuned-gui-wrapper"
+                :class "batt-icon"
+                {battery_charging == "Charging" ? "󰂄" : "󰂀"})
+            (button :onclick "scripts/tuned-gui-wrapper"
+                :class "batt-percentage"
+                "${battery}"
+            )
+        )
+    )
+)
+
+(defwidget separator []
+    (box :class "separator"
+        :orientation "v"
+        :space-evenly false
+        :halign "center"
+        :width 38
+        (label :text "━")))
+
+(defwidget time []
+    (eventbox :class "time"
+        (box :class "time_inner"
+            :orientation "v"
+            :space-evenly false
+            :halign "center"
+            :valign "center"
+            :width 38
+            :tooltip "${date_full}"
+            (button :onclick "scripts/popup calendar"
+                :class "hour"
+                "${hours}")
+            (button :onclick "scripts/popup calendar"
+                :class "minute"
+                "${minutes}")
+            ; (label :class "hour" :text "${hours}")
+            ; (label :class "minute" :text "${minutes}")
+        )
+    )
+)
+
+(defwidget workspace-panel []
+    (box
+        :class "workspace-panel"
+        :space-evenly false
+        :halign "center"
+        :orientation "v"
+        (for workspace in workspaces
+            (workspace-button :workspace workspace))))
+
+(defwidget workspace-button [workspace]
+    (button
+        :class "workspace-button ${workspace.active ? 'active' : ''}"
+        :onclick "hyprctl dispatch workspace ${workspace.id}"
+        :tooltip "Workspace ${workspace.id}: ${workspace.windows} window(s)"
+        :halign "center"
+        :width 38
+        "${workspace.active ? "[${workspace.id}]" : "${workspace.id}"}"))
+
+(defpoll music :initial ""
+    :interval "200ms"
+    "playerctl status")
+
+(deflisten music_info :initial ""
+    "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll battery :initial ""
+    :interval "15s"
+    "cat /sys/class/power_supply/BAT1/capacity")
+
+(defpoll battery_charging :initial ""
+    :interval "10s"
+    "cat /sys/class/power_supply/BAT1/status")
+
+(defpoll hours :interval "10s"
+    "date '+%H'")
+
+(defpoll minutes :interval "10s"
+    "date '+%M'")
+
+(defpoll date_full :interval "1h"
+    "date '+%d %B %Y'"
+)
+
+(deflisten workspaces :initial "[]"
+    "bash ~/.config/eww/scripts/get_workspace.sh")
