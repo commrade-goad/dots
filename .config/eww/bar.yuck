@@ -16,6 +16,7 @@
             :icon-size 16
             :prepend-new true
         )
+        (dunst)
         (music)
         (separator)
         (battery)
@@ -63,6 +64,21 @@
         :width 38
         (label :text "━")))
 
+(defwidget dunst []
+    (eventbox :class "dunst"
+        (box :class "dunst_inner"
+            :orientation "v"
+            :space-evenly false
+            :halign "center"
+            :width 38
+            (button
+                :onclick "dunstctl set-paused toggle"
+                {dunst_status == "false" ? "󰂚" : "󰂛"}
+            )
+        )
+    )
+)
+
 (defwidget time []
     (eventbox :class "time"
         (box :class "time_inner"
@@ -78,8 +94,6 @@
             (button :onclick "scripts/popup calendar"
                 :class "minute"
                 "${minutes}")
-            ; (label :class "hour" :text "${hours}")
-            ; (label :class "minute" :text "${minutes}")
         )
     )
 )
@@ -100,7 +114,8 @@
         :tooltip "Workspace ${workspace.id}: ${workspace.windows} window(s)"
         :halign "center"
         :width 38
-        "${workspace.active ? "[${workspace.id}]" : "${workspace.id}"}"))
+        "${workspace.id}"))
+        ; "${workspace.active ? "[${workspace.id}]" : "${workspace.id}"}"))
 
 (defpoll music :initial ""
     :interval "200ms"
@@ -125,6 +140,10 @@
 
 (defpoll date_full :interval "1h"
     "date '+%d %B %Y'"
+)
+
+(defpoll dunst_status :interval "1s"
+    "dunstctl is-paused"
 )
 
 (deflisten workspaces :initial "[]"

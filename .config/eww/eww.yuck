@@ -7,7 +7,7 @@
                       :y "0%"
                       :width "38px"
                       :height "100%"
-                      :anchor "top left")
+                      :anchor "top right")
   :stacking "fg"
   :exclusive true
   :namespace "eww-bar"
@@ -16,8 +16,8 @@
 
 (defwindow calendar
   :monitor 0
-	:geometry (geometry :x "45px"
+	:geometry (geometry :x "77.8%"
 						:y "73%"
-						:width "270px"
-						:height "60px")
+						:width "20%"
+						:height "15%")
 (cal))

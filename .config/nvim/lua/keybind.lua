@@ -8,6 +8,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "nzz")
 
 -- Leader key mappings
 vim.g.mapleader = " " -- Set space as leader key

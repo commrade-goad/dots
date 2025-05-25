@@ -92,9 +92,19 @@ $hover-color: $bright5;
   color: $foreground;
 }
 
-.music_inner {
+.dunst_inner {
+  font-family: "Iosevka Nerd Font Mono";
   font-weight: bold;
   margin-top: 6px;
+}
+
+.dunst:hover {
+  color: $foreground;
+}
+
+.music_inner {
+  font-weight: bold;
+  margin-top: 4px;
   margin-bottom: 4px;
 }
 

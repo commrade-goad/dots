@@ -5,7 +5,7 @@
     selected-col: #1e1e1e;
     fg-col: #fafafa;
     grey: #6e6e6e;
-    accent-color: #fafafa;
+    accent-color: #C4B0C4;
 
     width: 720;
     font: "Iosevka Nerd Font Mono 14";
