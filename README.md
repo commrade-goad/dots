@@ -27,4 +27,11 @@
 
 ## USAGE
 
-* After reboot login like usual (TTY Login) and after done just type `hypr` and TADA!
+* After reboot login like usual (TTY Login) and after done just type `hypr` and __TADA!__
+* FileManager(yazi) : just do `y` on foot terminal and use it like you would use vim(the bindings).
+* Terminal(foot) : just do Win+Enter to open foot.
+* Menu(rofi-wayland) : just do Win+d to open rofi (which is your app menu)
+* Master Menu(rofi-wayland and cusprus) : just do Win+x to open the master menu(shutdown, etc)
+* Close: use Win+Shift+q
+* Emoji(Win+.), Clipboard(Win+v), Zoom(Win+[+]), NotifHist(Win+n)
+* __The rest of the bindings can be seen on .config/hypr/hyprland.conf__
