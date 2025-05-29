@@ -1,5 +1,8 @@
 # MY DOTS
 
+## LOOKS
+![Screenshot](./.github/sc.png)
+
 ## HOW-TO
 
 1. Install any aur helper you like (`yay`, `paru`, etc)
