@@ -17,10 +17,14 @@
     * Build : `cargo build --release --no-default-features --features=wayland`
     * Copy : `cp target/release/eww $HOME/.local/share/bin/`
 
-3. Copy all the config and local to your own home dir
+4. Copy all the config and local to your own home dir
     * Make the dir if not exist : `mkdir -p $HOME/.config && mkdir -p $HOME/.local`
     * Copy the config : `cp -r .config/ $HOME/.config/`
     * Copy the local : `cp -r .local/ $HOME/.local/`
     * Copy bash stuff : `cp .bashrc $HOME/`
     * Copy bash stuff : `cp .bash_profile $HOME/`
     * Copy inputrc (for case-insensitive autocompletion) : `cp .inputrc $HOME/`
+
+## USAGE
+
+* After reboot login like usual (TTY Login) and after done just type `hypr` and TADA!
