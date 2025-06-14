@@ -10,7 +10,7 @@ select_alt  = { fg = "white", bg = "black" }
 unset_main  = { fg = "red", bg = "white"  }
 unset_alt   = { fg = "white", bg = "red" }
 
-[manager]
+[mgr]
 count_copied   = {fg = "yellow", bg = "black"}
 count_cut      = {fg = "red", bg = "black"}
 count_selected = {fg = "white", bg = "black"}

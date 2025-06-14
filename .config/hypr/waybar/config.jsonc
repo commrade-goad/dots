@@ -1,0 +1,125 @@
+{
+    "height": 30,
+    "layer": "top",
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "position": "top",
+    "spacing": 5,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "custom/media"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/dunst",
+        "idle_inhibitor",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "sort-by-number": true
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 65
+    },
+    "tray": {
+        "spacing": 10,
+        "icon-size": 12
+    },
+    "clock": {
+        "format": "{:%d/%m/%y  %R}",
+        "tooltip-format": "<i>{:%d %B %Y}</i>\n\n<tt>{calendar}</tt>",
+        // "tooltip-format": "<i>{:%d %B %Y}</i>",
+        "on-click": "foot -a calendar-dialog -w 800x600 -e ~/.config/hypr/scripts/calendar.sh",
+        "interval": 30
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "CPU:{usage}%",
+        "max-length": 10,
+        "on-click": "foot -a rmon-dialog -w 800x600 -e btop",
+    },
+    // "network": {
+    //     "format-wifi": "W",
+    //     "format-ethernet": "E",
+    //     "format-disconnected": "!",
+    //     "tooltip-format": "{ifname}: {gwaddr}({essid}, {signalStrength}%)",
+    //     "on-click": "foot -a nmtui-dialog -w 800x600 -e nmtui",
+    //     "max-length": 5
+    // },
+    // "pulseaudio": {
+    //     "format": "VOL:{volume}%",
+    //     "format-bluetooth": "VOL:{volume}",
+    //     "format-bluetooth-muted":"VOL: x",
+    //     "format-muted": "VOL:x{volume}%",
+    //     "format-icons": {
+    //         "default": [
+    //             "󰕾",
+    //         ]
+    //     },
+    //     "on-click": "pavucontrol",
+    //     "on-click-right": "pamixer -t"
+    // },
+    "battery": {
+        "interval": 30,
+        "states": {
+            "warning": 30,
+            "critical": 20
+        },
+        "on-click": "~/.config/hypr/scripts/tuned-gui",
+        "max-length": 20,
+        "format": "BAT:{capacity}%",
+        "format-charging": "BAT:{capacity}+",
+        "format-plugged": "BAT:{capacity}+",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶",
+            "deactivated": "󰾪"
+        }
+    },
+    "custom/dunst": {
+        "return-type": "json",
+        "format": "{}",
+        "restart-interval": 1,
+        "exec": "~/.config/hypr/scripts/dunst.sh",
+        "on-click": "dunstctl set-paused toggle",
+        "on-click-right": "~/.config/hypr/scripts/notif-history"
+    },
+    "custom/separator": {
+        "format": "::",
+    },
+    "custom/media": {
+        "format": "{}",
+        "max-length": 60,
+        "on-click": "playerctl play-pause",
+        "smooth-scrolling-threshold": 10,
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "~/.config/hypr/scripts/custom-media.sh",
+    }
+}

@@ -2,22 +2,22 @@
 (include "./calendar.yuck")
 
 (defwindow bar
-  :monitor 0
-  :geometry (geometry :x "0%"
-                      :y "0%"
-                      :width "38px"
-                      :height "100%"
-                      :anchor "top right")
-  :stacking "fg"
-  :exclusive true
-  :namespace "eww-bar"
-  :windowtype "dock"
-  (bar))
+    :monitor 0
+    :geometry (geometry :x "0%"
+        :y "0%"
+        :width "38px"
+        :height "100%"
+        :anchor "center left")
+    :exclusive true
+    :stacking "fg"
+    :windowtype "dock"
+    (bar))
 
 (defwindow calendar
-  :monitor 0
-	:geometry (geometry :x "77.8%"
-						:y "73%"
-						:width "20%"
-						:height "15%")
-(cal))
+    :monitor 0
+    :geometry (geometry
+        :x "0.3%"
+        :y "73%"
+        :width "20%"
+        :height "15%")
+    (cal))

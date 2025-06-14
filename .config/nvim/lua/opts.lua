@@ -40,6 +40,8 @@ opt.incsearch = true
 opt.scrolloff = 3
 opt.updatetime = 50
 opt.swapfile = false
+opt.laststatus = 2
+-- opt.laststatus = 3
 
 -- NEWLINE AND ETC
 vim.opt.list = false
@@ -57,9 +59,6 @@ vim.g.netrw_localrmdir = "rm -r"
 vim.g.netrw_keepdir = 1
 
 vim.g.editorconfig = true
-
--- SHIFT+I > show banner
--- i > change view
 
 -- ZIG WHY?????
 vim.cmd("let g:zig_fmt_autosave = 0")

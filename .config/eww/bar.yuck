@@ -4,8 +4,6 @@
         (sidestuff))
 )
 
-; todo make battery dynamic
-
 (defwidget sidestuff []
     (box :class "sidestuff" :orientation "v" :space-evenly false :halign "center" :valign "end"
         (systray
@@ -16,7 +14,6 @@
             :icon-size 16
             :prepend-new true
         )
-        (dunst)
         (music)
         (separator)
         (battery)
@@ -64,21 +61,6 @@
         :width 38
         (label :text "━")))
 
-(defwidget dunst []
-    (eventbox :class "dunst"
-        (box :class "dunst_inner"
-            :orientation "v"
-            :space-evenly false
-            :halign "center"
-            :width 38
-            (button
-                :onclick "dunstctl set-paused toggle"
-                {dunst_status == "false" ? "󰂚" : "󰂛"}
-            )
-        )
-    )
-)
-
 (defwidget time []
     (eventbox :class "time"
         (box :class "time_inner"
@@ -111,11 +93,10 @@
     (button
         :class "workspace-button ${workspace.active ? 'active' : ''}"
         :onclick "hyprctl dispatch workspace ${workspace.id}"
-        :tooltip "Workspace ${workspace.id}: ${workspace.windows} window(s)"
+        :tooltip "Workspace ${workspace.w.id}: ${workspace.windows} window(s)"
         :halign "center"
         :width 38
         "${workspace.id}"))
-        ; "${workspace.active ? "[${workspace.id}]" : "${workspace.id}"}"))
 
 (defpoll music :initial ""
     :interval "200ms"
@@ -142,9 +123,5 @@
     "date '+%d %B %Y'"
 )
 
-(defpoll dunst_status :interval "1s"
-    "dunstctl is-paused"
-)
-
 (deflisten workspaces :initial "[]"
-    "bash ~/.config/eww/scripts/get_workspace.sh")
+    "~/.config/eww/scripts/get-workspace.sh")

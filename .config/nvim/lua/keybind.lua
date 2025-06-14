@@ -1,4 +1,4 @@
-Nvim_cc_start_insert = false
+Nvim_cc_start_insert = true
 Nvim_cc_blacklist_dir_name = {"src", "bin"}
 
 local nvim_cc = require("mod.nvim-cc")
@@ -9,7 +9,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "nzz")
+vim.keymap.set("n", "N", "Nzz")
 
 -- Leader key mappings
 vim.g.mapleader = " " -- Set space as leader key
@@ -35,6 +35,8 @@ vim.keymap.set("v", "<leader>jj", "<cmd>normal! %<CR>", { desc = "Jump Matching 
 vim.keymap.set("v", "<leader>jh", "<cmd>normal! ^<CR>", { desc = "Jump to Line Start" })
 vim.keymap.set("v", "<leader>jl", "<cmd>normal! $<CR>", { desc = "Jump to Line End" })
 vim.keymap.set("v", "mf", ":normal mf<CR>", { desc = "Mark File (netrw)" })
+-- NETRW: SHIFT+I > show banner
+-- NETRW: i > change view
 
 -- Terminal mode mappings
 vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode", silent = true })
@@ -51,6 +53,7 @@ end, { desc = "Duplicate Line with Cursor" })
 vim.keymap.set("n", "<leader>gs", ":Git<CR>", { desc = "Git Status" })
 vim.keymap.set("n", "<leader>gd", ":Git diff<CR>", { desc = "Git Diff" })
 vim.keymap.set("n", "<leader>gp", ":Git push<CR>", { desc = "Git Push" })
+vim.keymap.set("n", "<leader>gl", ":Git pull<CR>", { desc = "Git pull" })
 
 -- Telescope mappings
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find Files" })

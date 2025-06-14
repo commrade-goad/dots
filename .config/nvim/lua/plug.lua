@@ -3,16 +3,20 @@ return {
         config = function ()
             local custom_color = require('plugconf.custom-color')
             require('base16-colorscheme').setup(custom_color)
-            -- require('base16-colorscheme').setup()
         end
     },
     {"nvim-telescope/telescope.nvim",
         name = "telescope",
-        event= "VeryLazy"
     },
-    {'tpope/vim-fugitive', event = "VeryLazy"},
-    -- {'tpope/vim-surround', event = "VeryLazy"},
-    {'dhruvasagar/vim-table-mode', event = "InsertEnter"},
+
+    {"windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function ()
+            require('nvim-autopairs').setup({
+                disable_filetype = { "TelescopePrompt" , "vim" },
+            })
+        end
+    },
 
     {'nvim-treesitter/nvim-treesitter',
         event = "VeryLazy",
@@ -20,6 +24,9 @@ return {
             require("plugconf.treesitter")
         end
     },
+
+    {'tpope/vim-fugitive', event = "VeryLazy"},
+    {'dhruvasagar/vim-table-mode', event = "InsertEnter"},
 
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
