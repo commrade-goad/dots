@@ -35,3 +35,8 @@
 * Close: use Win+Shift+q
 * Emoji(Win+.), Clipboard(Win+v), Zoom(Win+[+]), NotifHist(Win+n)
 * __The rest of the bindings can be seen on .config/hypr/hyprland.conf__
+
+## NOTE
+
+- For setting up xorg to use sane default trackpad copy `40-libinput.conf` to `/etc/X11/xorg.conf.d/40-libinput.conf`
+- `./pkglist-new.txt` is for minimal Xorg + dwm setup.
